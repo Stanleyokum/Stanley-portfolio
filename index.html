@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stanley Okumu | IT Professional</title>
+    <style>
+        /* ─── RESET & GLOBAL ─── */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-deep: #0a0e12;
+            --bg-surface: #0f141a;
+            --bg-terminal: #0b0f14;
+            --border-dim: #1e2a36;
+            --border-glow: #1e3a3a;
+            --text-primary: #e8edf2;
+            --text-secondary: #8899a8;
+            --text-muted: #4a5a68;
+            --accent-green: #2ed573;
+            --accent-green-dim: #1a7a4a;
+            --accent-green-bright: #7bed9f;
+            --accent-cyan: #48dbfb;
+            --accent-purple: #a29bfe;
+            --font-mono: 'SF Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+            --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-primary);
+            font-family: var(--font-mono);
+            font-size: 14px;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ─── TYPOGRAPHY ─── */
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.02em;
+        }
+
+        .text-green {
+            color: var(--accent-green);
+        }
+
+        /* ─── SCROLLBAR ─── */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-deep);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--border-dim);
+            border-radius: 3px;
+        }
+
+        /* ─── NAVIGATION ─── */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 32px;
+            border-bottom: 1px solid var(--border-dim);
+            background: var(--bg-deep);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: var(--font-mono);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: 0.5px;
+        }
+
+        .logo .prefix {
+            color: var(--accent-green);
+        }
+
+        .logo .dot {
+            color: var(--accent-green);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-green);
+        }
+
+        .nav-contact {
+            border: 1px solid var(--border-dim);
+            padding: 6px 16px;
+            border-radius: 4px;
+            color: var(--text-primary) !important;
+            font-size: 12px !important;
+            transition: all 0.2s;
+        }
+
+        .nav-contact:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green) !important;
+            background: rgba(46, 213, 115, 0.05);
+        }
+
+        /* ─── HERO SECTION ─── */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 64px;
+            padding: 80px 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex: 1;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 520px;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 11px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--accent-green-dim);
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 24px;
+            background: rgba(46, 213, 115, 0.03);
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero-name {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 8px;
+            letter-spacing: -2px;
+            color: var(--text-primary);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 24px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero-subtitle .underscore {
+            color: var(--accent-green);
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 11px;
+            padding: 4px 12px;
+            border-radius: 4px;
+            border: 1px solid var(--border-dim);
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            background: var(--bg-surface);
+        }
+
+        .tag.green {
+            border-color: var(--accent-green-dim);
+            color: var(--accent-green);
+        }
+
+        .tag.purple {
+            border-color: #3a2a5a;
+            color: var(--accent-purple);
+        }
+
+        .hero-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.8;
+            border-left: 2px solid var(--border-dim);
+            padding-left: 16px;
+            font-style: italic;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            padding: 10px 24px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border: 1px solid;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: rgba(46, 213, 115, 0.08);
+            border-color: var(--accent-green-dim);
+            color: var(--accent-green);
+        }
+
+        .btn-primary:hover {
+            background: rgba(46, 213, 115, 0.15);
+            border-color: var(--accent-green);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border-color: var(--border-dim);
+            color: var(--text-secondary);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--text-muted);
+            color: var(--text-primary);
+        }
+
+        .hero-socials {
+            font-size: 11px;
+            color: var(--text-muted);
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .hero-socials a {
+            color: var(--text-secondary);
+            transition: color 0.2s;
+        }
+
+        .hero-socials a:hover {
+            color: var(--accent-green);
+        }
+        /* Profile Photo */
+.profile-image {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--accent-green);
+    box-shadow: 0 0 20px rgba(46, 213, 115, 0.25);
+    margin-bottom: 20px;
+}
+
+        /* ─── TERMINAL WINDOW ─── */
+        .terminal-window {
+            flex: 1;
+            max-width: 600px;
+            background: var(--bg-terminal);
+            border: 1px solid var(--border-dim);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 40px rgba(46, 213, 115, 0.04), 0 0 80px rgba(72, 219, 251, 0.02);
+            position: relative;
+        }
+
+        .terminal-window::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at top right, rgba(46, 213, 115, 0.03), transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .terminal-header {
+            display: flex;
+            align-items: center;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-dim);
+            background: rgba(15, 20, 26, 0.8);
+            gap: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 6px;
+        }
+
+        .terminal-dots span {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .terminal-title {
+            font-size: 11px;
+            color: var(--text-muted);
+            margin-left: 8px;
+            flex: 1;
+            text-align: center;
+        }
+
+        .terminal-menu {
+            color: var(--text-muted);
+            font-size: 16px;
+            cursor: default;
+            letter-spacing: 2px;
+        }
+
+        .terminal-body {
+            padding: 24px;
+            font-size: 13px;
+            line-height: 2;
+            position: relative;
+            z-index: 1;
+            min-height: 300px;
+        }
+
+        .terminal-line {
+            display: flex;
+            gap: 8px;
+            align-items: baseline;
+            flex-wrap: wrap;
+        }
+
+        .prompt {
+            color: var(--accent-green);
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        .prompt .arrow {
+            color: var(--accent-green-bright);
+        }
+
+        .cmd {
+            color: var(--text-primary);
+        }
+
+        .cmd-output {
+            color: var(--text-secondary);
+            padding-left: 20px;
+        }
+
+        .cmd-output .highlight {
+            color: var(--accent-cyan);
+        }
+
+        .cmd-output .green {
+            color: var(--accent-green);
+        }
+
+        .cmd-output .purple {
+            color: var(--accent-purple);
+        }
+
+        /* progress bar */
+        .progress-bar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding-left: 20px;
+            margin: 2px 0;
+        }
+
+        .progress-track {
+            width: 180px;
+            height: 8px;
+            background: var(--border-dim);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 100%;
+            background: linear-gradient(90deg, var(--accent-green-dim), var(--accent-green), var(--accent-green-bright));
+            border-radius: 4px;
+            animation: progressPulse 2s infinite;
+        }
+
+        @keyframes progressPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .progress-label {
+            font-size: 11px;
+            color: var(--accent-green);
+        }
+
+        /* cursor blink */
+        .cursor-blink {
+            display: inline-block;
+            width: 8px;
+            height: 16px;
+            background: var(--accent-green);
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+            margin-left: 4px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* ─── SECTIONS (below hero) ─── */
+        .section {
+            padding: 80px 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-light {
+            background: var(--bg-surface);
+            max-width: 100%;
+            padding: 80px 32px;
+        }
+
+        .section-light .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .eyebrow {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            margin-bottom: 8px;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title span {
+            color: var(--accent-green);
+        }
+
+        .section-description {
+            font-size: 14px;
+            color: var(--text-secondary);
+            max-width: 640px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        /* Info grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .info-card {
+            background: var(--bg-terminal);
+            border: 1px solid var(--border-dim);
+            border-radius: 6px;
+            padding: 24px;
+            transition: border-color 0.2s;
+        }
+
+        .info-card:hover {
+            border-color: var(--border-glow);
+        }
+
+        .info-card h3 {
+            font-size: 13px;
+            color: var(--accent-green);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .info-card p {
+            font-size: 14px;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .info-card small {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Skills grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        .skill-card {
+            background: var(--bg-terminal);
+            border: 1px solid var(--border-dim);
+            border-radius: 6px;
+            padding: 24px;
+            transition: border-color 0.2s;
+        }
+
+        .skill-card:hover {
+            border-color: var(--border-glow);
+        }
+
+        .skill-icon {
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .skill-card h3 {
+            font-size: 14px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .skill-card p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Projects grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .project-card {
+            background: var(--bg-terminal);
+            border: 1px solid var(--border-dim);
+            border-radius: 6px;
+            padding: 24px;
+            transition: border-color 0.2s;
+        }
+
+        .project-card:hover {
+            border-color: var(--border-glow);
+        }
+
+        .project-number {
+            font-size: 10px;
+            color: var(--accent-green);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .project-card h3 {
+            font-size: 15px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .project-card p {
+            font-size: 12px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 12px;
+        }
+
+        .project-tags span {
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: rgba(46, 213, 115, 0.06);
+            color: var(--accent-green-dim);
+            border: 1px solid rgba(46, 213, 115, 0.1);
+        }
+
+        .project-note {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Experience */
+        .experience-card {
+            background: var(--bg-terminal);
+            border: 1px solid var(--border-dim);
+            border-radius: 6px;
+            padding: 24px 32px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+            transition: border-color 0.2s;
+        }
+
+        .experience-card:hover {
+            border-color: var(--border-glow);
+        }
+
+        .timeline-dot {
+            width: 10px;
+            height: 10px;
+            min-width: 10px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            margin-top: 6px;
+            box-shadow: 0 0 10px rgba(46, 213, 115, 0.3);
+        }
+
+        .experience-date {
+            font-size: 10px;
+            color: var(--accent-green);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .experience-card h3 {
+            font-size: 16px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .experience-card p {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .experience-card small {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* Contact */
+        .contact-section {
+            text-align: center;
+            border-top: 1px solid var(--border-dim);
+        }
+
+        .contact-section .section-description {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 24px;
+        }
+
+        .contact-phone {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-dim);
+            padding: 24px 32px;
+            background: var(--bg-deep);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer-content p {
+            font-size: 11px;
+            color: var(--text-muted);
+        }
+
+        .footer-content a {
+            font-size: 11px;
+            color: var(--text-muted);
+            transition: color 0.2s;
+        }
+
+        .footer-content a:hover {
+            color: var(--accent-green);
+        }
+
+        /* ─── MENU TOGGLE (mobile) ─── */
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: 1px solid var(--border-dim);
+            color: var(--text-primary);
+            font-size: 20px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: var(--font-mono);
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 900px) {
+            .hero {
+                flex-direction: column;
+                padding: 48px 24px;
+                gap: 48px;
+            }
+
+            .hero-name {
+                font-size: 42px;
+                letter-spacing: -1px;
+            }
+
+            .terminal-window {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .navbar {
+                padding: 12px 24px;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-deep);
+                border-bottom: 1px solid var(--border-dim);
+                flex-direction: column;
+                padding: 16px 24px;
+                gap: 16px;
+                align-items: flex-start;
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .section, .section-light {
+                padding: 48px 24px;
+            }
+
+            .section-title {
+                font-size: 26px;
+            }
+
+            .hero-buttons {
+                flex-wrap: wrap;
+            }
+
+            .terminal-body {
+                font-size: 12px;
+                padding: 16px;
+                line-height: 1.8;
+            }
+
+            .progress-track {
+                width: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-name {
+                font-size: 32px;
+            }
+
+            .hero-subtitle {
+                font-size: 14px;
+            }
+
+            .info-grid,
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-card {
+                flex-direction: column;
+                padding: 20px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .terminal-line {
+                flex-direction: column;
+                gap: 2px;
+            }
+
+            .cmd-output {
+                padding-left: 0;
+            }
+
+            .progress-bar {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ─── NAVIGATION ─── -->
+    <header>
+        <nav class="navbar" id="navbar">
+            <a href="#home" class="logo">
+                <span class="prefix">root@</span>Stanley<span class="dot">.</span>
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation">☰</button>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#about">01. about</a></li>
+                <li><a href="#skills">02. stack</a></li>
+                <li><a href="#projects">03. projects</a></li>
+                <li><a href="#contact" class="nav-contact">Execute_contact()</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- ─── HERO ─── -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    System.status: Online
+                </div>
+                <img src="assets/stanley.jpg" alt="Stanley Okumu" class="profile-image">
+
+                <h1 class="hero-name">Stanley Okumu</h1>
+                <p class="hero-subtitle">IT Student <span class="underscore">_</span> Aspiring IT Professional</p>
+
+                <div class="hero-tags">
+                    <span class="tag green">Cybersecurity</span>
+                    <span class="tag">Networking</span>
+                    <span class="tag purple">IT Support</span>
+                </div>
+
+                <p class="hero-desc">
+                    &gt; Executing hardware-level diagnostics &amp; building resilient systems.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">Explore_work()</a>
+                    <a href="#contact" class="btn btn-secondary">Contact_me()</a>
+                </div>
+
+                <div class="hero-socials">
+                    <a href="https://github.com/Stanleyokum" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+                    <span>•</span>
+                    <a href="mailto:okumustanley92@gmail.com">Email ↗</a>
+                </div>
+            </div>
+            
+
+            <!-- Terminal Window -->
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-dots">
+                        <span class="dot-red"></span>
+                        <span class="dot-yellow"></span>
+                        <span class="dot-green"></span>
+                    </div>
+                    <span class="terminal-title">root@stanley: ~</span>
+                    <span class="terminal-menu">☰</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="prompt"><span class="arrow">&gt;</span></span>
+                        <span class="cmd">system.boot()</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="cmd-output">initializing core_modules...</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-track">
+                            <div class="progress-fill"></div>
+                        </div>
+                        <span class="progress-label">100%</span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="cmd-output">identity: <span class="highlight">student @ SPU</span></span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="cmd-output">target_lock: <span class="highlight">[networking, security, support]</span></span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="cmd-output">skill_matrix: <span class="green">online</span></span>
+                    </div>
+                    <div class="terminal-line">
+                        <span class="cmd-output">establishing secure connection...</span>
+                    </div>
+                    <div class="terminal-line" style="margin-top: 8px;">
+                        <span class="prompt"><span class="arrow">&gt;</span></span>
+                        <span class="cmd">root@stanley:~</span>
+                        <span class="cursor-blink"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── ABOUT ─── -->
+        <section class="section section-light" id="about">
+            <div class="container">
+                <p class="eyebrow">// get_to_know_me</p>
+                <h2 class="section-title">About <span>Me</span></h2>
+
+                <p class="section-description">
+                    I'm pursuing a Diploma in Information Technology at St. Paul's University.
+                    I'm interested in understanding how computer systems and networks work,
+                    keeping systems secure, and helping people solve technical problems.
+                    My goal is to develop practical skills and grow into a capable IT professional.
+                </p>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>🎓 Education</h3>
+                        <p>Diploma in Information Technology</p>
+                        <small>St. Paul's University</small>
+                    </div>
+                    <div class="info-card">
+                        <h3>🎯 Career Interests</h3>
+                        <p>Networking &amp; Cybersecurity</p>
+                        <small>IT Support and Digital Forensics</small>
+                    </div>
+                    <div class="info-card">
+                        <h3>📍 Location</h3>
+                        <p>Nairobi, Kenya</p>
+                        <small>Open to learning and opportunities</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── SKILLS ─── -->
+        <section class="section" id="skills">
+            <p class="eyebrow">// tech_stack</p>
+            <h2 class="section-title">My <span>Skills</span></h2>
+
+            <p class="section-description">
+                My skills are developing through coursework, practical exercises, and IT experience.
+            </p>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon">🖥️</div>
+                    <h3>IT Support</h3>
+                    <p>Computer troubleshooting, software installation, and basic system administration.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🌐</div>
+                    <h3>Networking</h3>
+                    <p>Network connectivity troubleshooting, Ethernet cable testing, and basic network concepts.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🔐</div>
+                    <h3>Cybersecurity</h3>
+                    <p>Security fundamentals, password security, and safe system practices.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon">🗄️</div>
+                    <h3>Databases &amp; Web</h3>
+                    <p>Learning database management, HTML, CSS, JavaScript, PHP, and MySQL.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── PROJECTS ─── -->
+        <section class="section section-light" id="projects">
+            <div class="container">
+                <p class="eyebrow">// deployments</p>
+                <h2 class="section-title">My <span>Projects</span></h2>
+
+                <div class="projects-grid">
+                    <article class="project-card">
+                        <div class="project-number">PROJECT 01</div>
+                        <h3>Student Clearance Management System</h3>
+                        <p>
+                            An academic project designed to help manage student clearance
+                            across departments such as finance, library, sports, and medical services.
+                        </p>
+                        <div class="project-tags">
+                            <span>PHP</span>
+                            <span>MySQL</span>
+                            <span>HTML &amp; CSS</span>
+                        </div>
+                        <p class="project-note">Academic project</p>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-number">PROJECT 02</div>
+                        <h3>Networking &amp; Troubleshooting Labs</h3>
+                        <p>
+                            Practical learning activities involving network connectivity,
+                            Ethernet cable testing, and basic system troubleshooting.
+                        </p>
+                        <div class="project-tags">
+                            <span>Networking</span>
+                            <span>Windows</span>
+                            <span>Troubleshooting</span>
+                        </div>
+                        <p class="project-note">Practical learning</p>
+                    </article>
+
+                    <article class="project-card">
+                        <div class="project-number">PROJECT 03</div>
+                        <h3>Personal Portfolio Website</h3>
+                        <p>
+                            A personal website showcasing my education, developing technical skills,
+                            projects, and professional interests.
+                        </p>
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <p class="project-note">Currently building</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── EXPERIENCE ─── -->
+        <section class="section" id="experience">
+            <p class="eyebrow">// professional_journey</p>
+            <h2 class="section-title">Experience &amp; <span>Learning</span></h2>
+
+            <div class="experience-card">
+                <div class="timeline-dot"></div>
+                <div>
+                    <p class="experience-date">IT ATTACHMENT</p>
+                    <h3>IT Attachment — GPO</h3>
+                    <p>
+                        Gaining practical exposure to IT operations, computer systems,
+                        networking, troubleshooting, and system security.
+                    </p>
+                    <small>Update this section with your actual duties, department, and completed tasks.</small>
+                </div>
+            </div>
+        </section>
+
+        <!-- ─── CONTACT ─── -->
+        <section class="section contact-section" id="contact">
+            <div class="container">
+                <p class="eyebrow">// establish_connection</p>
+                <h2 class="section-title">Get In <span>Touch</span></h2>
+
+                <p class="section-description">
+                    Interested in connecting about IT opportunities, projects, or professional collaboration? Reach out.
+                </p>
+
+                <div class="contact-links">
+                    <a href="mailto:okumustanley92@gmail.com" class="btn btn-primary">✉ Email_me</a>
+                    <a href="https://github.com/Stanleyokum" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">GitHub_profile ↗</a>
+                </div>
+
+                <p class="contact-phone">Phone: 0708 075 737</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <a href="#home" class="logo">
+                <span class="prefix">root@</span>Stanley<span class="dot">.</span>
+            </a>
+            <p>© <span id="year"></span> Stanley Omondi Okumu. All rights reserved.</p>
+            <a href="#home">Back_to_top ↑</a>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const toggle = document.getElementById('menu-toggle');
+        const navLinks = document.getElementById('nav-links');
+
+        toggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', isOpen);
+        });
+
+        // Close mobile menu on link click
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    </script>
+</body>
+</html>
